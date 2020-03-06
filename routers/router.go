@@ -1,7 +1,9 @@
 package routers
 
 import (
+	"github.com/Ackerr/GoDemo/middleware/jwt"
 	"github.com/Ackerr/GoDemo/pkg/setting"
+	"github.com/Ackerr/GoDemo/routers/api"
 	v1 "github.com/Ackerr/GoDemo/routers/api/v1"
 	"github.com/gin-gonic/gin"
 )
@@ -10,12 +12,15 @@ func InitRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+
 	gin.SetMode(setting.RunMode)
 
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "Hello World"})
 	})
+	r.GET("/auth", api.GetAuth)
 	api := r.Group("/api/v1")
+	api.Use(jwt.JWT())
 	{
 		api.GET("/tags", v1.GetTags)
 		api.POST("/tags", v1.AddTag)
