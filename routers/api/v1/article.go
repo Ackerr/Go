@@ -1,11 +1,11 @@
 package v1
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/Ackerr/GoDemo/models"
 	"github.com/Ackerr/GoDemo/pkg/e"
+	"github.com/Ackerr/GoDemo/pkg/logging"
 	"github.com/Ackerr/GoDemo/pkg/setting"
 	"github.com/Ackerr/GoDemo/pkg/util"
 	"github.com/astaxie/beego/validation"
@@ -31,7 +31,7 @@ func GetArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -73,7 +73,7 @@ func GetArticles(c *gin.Context) {
 
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -119,7 +119,7 @@ func AddArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -184,7 +184,7 @@ func EditArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -212,7 +212,7 @@ func DeleteArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 

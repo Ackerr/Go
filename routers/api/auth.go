@@ -1,11 +1,11 @@
 package api
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/Ackerr/GoDemo/models"
 	"github.com/Ackerr/GoDemo/pkg/e"
+	"github.com/Ackerr/GoDemo/pkg/logging"
 	"github.com/Ackerr/GoDemo/pkg/util"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
@@ -31,7 +31,6 @@ func GetAuth(c *gin.Context) {
 		isExist := models.CheckAuth(username, password)
 		if isExist {
 			token, err := util.GenerateToken(username, password)
-			log.Println(err)
 			if err != nil {
 				code = e.ERROR_AUTH_TOKEN
 			} else {
@@ -45,7 +44,7 @@ func GetAuth(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 

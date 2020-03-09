@@ -29,6 +29,7 @@ replace (
 	github.com/Ackerr/GoDemo/middleware => ../GoDemo/middleware
 	github.com/Ackerr/GoDemo/models => ../GoDemo/models
 	github.com/Ackerr/GoDemo/pkg/e => ../GoDemo/pkg/e
+	github.com/Ackerr/GoDemo/pkg/logging => ../GoDemo/pkg/logging
 	github.com/Ackerr/GoDemo/pkg/setting => ../GoDemo/pkg/setting
 	github.com/Ackerr/GoDemo/pkg/util => ../GoDemo/pkg/util
 	github.com/Ackerr/GoDemo/routers => ../GoDemo/routers
