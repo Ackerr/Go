@@ -5,10 +5,9 @@ import (
 	"log"
 	"time"
 
+	"github.com/Ackerr/GoDemo/pkg/setting"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-
-	"github.com/Ackerr/GoDemo/pkg/setting"
 )
 
 var db *gorm.DB
